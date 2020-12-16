@@ -4,7 +4,7 @@ Para el movimiento del carrito se hizo uso de dos motores DC en conjunto con un 
 
 Observamos como se controlara el movimiento de los motores mediante el uso de arduino donde se polarizara cada uno de los motores dependiendo la accion que se necesite. Iniciaremos primero  para el caso de que el movimiento requerido sea hacia adelante, caso en el cual se polarizaran ambos motores de igual forma como se muestra a continuacion
 
-``` arduino
+``` 
 
 void Adelante() {
   digitalWrite(Motor1_1, LOW);
