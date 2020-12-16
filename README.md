@@ -10,3 +10,5 @@ El proyecto consiste en un robot el cual se encuentra en un laberinto, y este de
 ![Screenshot](ProyectoFinal.png) 
 
 </p>
+
+Este SoC se encuentra compuesta 
