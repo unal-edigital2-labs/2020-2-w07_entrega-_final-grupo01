@@ -15,5 +15,17 @@ Este SoC se encuentra compuesto primeramente por el procesador RISC-V, con su re
 
 <h3> ULTRASONIDO </h3>
 
-El sensor ultrasonido utilizado para la realizacion del proyecto fue el HC-SR04. Este dispositivo fue usado con el proposito de realizar el mapeo del laberinto y asi poder detectar los obstaculos o en nuestro caso las paredes y del mismo modo los caminos que se encontraban libres. Por otra parte, primero observaremos el driver implementado para lograr un correcto funcionamiento de este dispositivo. Para ellos debemos tener en cuenta que el ultrasonido para lograr realizar mediciones de distancia lo que hace es enviar una señal, y cuenta el tiempo que tarde en llegar nuevamente, esto permite hacer una relacion entre este tiempo y la distancia a la que se encuentra en objeto, la cual sera dada por la siguiente ecuacion:
+El sensor ultrasonido utilizado para la realizacion del proyecto fue el HC-SR04. Este dispositivo fue usado con el proposito de realizar el mapeo del laberinto y asi poder detectar los obstaculos o en nuestro caso las paredes y del mismo modo los caminos que se encontraban libres. Por otra parte, primero observaremos el driver implementado para lograr un correcto funcionamiento de este dispositivo. Para ellos debemos tener en cuenta que el ultrasonido para lograr realizar mediciones de distancia lo que hace es enviar una señal sonora, y cuenta el tiempo que tarde en llegar nuevamente, esto permite hacer una relacion entre este tiempo y la distancia a la que se encuentra en objeto, la cual sera dada por la siguiente ecuacion:
 
+<h3> INFRARROJO </h3>
+El sensor infrarrojo utilizado fue el POLOLU-2459
+
+<h3> SERVOMOTOR </h3>
+
+El servomotor utilizado fue el 
+
+<h3> MOTORES </h3>
+
+Para el movimiento del carrito se hizo uso de dos motores DC en conjunto con 
+
+<h3>CAMARA</h3>
