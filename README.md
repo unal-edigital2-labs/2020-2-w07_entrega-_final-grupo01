@@ -11,4 +11,6 @@ El proyecto consiste en un robot el cual se encuentra en un laberinto, y este de
 
 </p>
 
-Este SoC se encuentra compuesta 
+Este SoC se encuentra compuesto primeramente por el procesador RISC-V, con su respectiva memoria donde se encontraran las instrucciones y para realizar la conexion con cada uno de los perifericos se hace uso de un bus tipo Wishbone. A continuacion veremos cada uno de los perifericos implementados. 
+
+<h1> ULTRASONIDO </h1>
