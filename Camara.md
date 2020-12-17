@@ -40,10 +40,27 @@ input wire [7:0]CAM_px_data,    // El cual corresponde a los 8 pines de datos de
 input wire init_procesamiento,  // Señal de inicializacion para el procesamiento
 ```
 
-## Captura y conversión de datos
-Mediante el módulo "camread.v" se hace la captura de datos y su respectiva conversión
-
-
+## Captura de datos
+Mediante el módulo "camread.v" se hace la captura de datos y su respectiva asignación para enviar byte a bayte a la memoria ram
+```verilog
+BYTE1:begin
+    DP_RAM_regW<=0; 					  //Desactiva la escritura en memoria 
+    if(CAM_href)begin					  //si la señal Href esta arriva, evalua si ya llego a la ultima posicion en memoria
+           if(DP_RAM_addr_in==imaSiz) DP_RAM_addr_in<=0;  //Si ya llego al final, reinicia la posición en memoria. 
+           else DP_RAM_addr_in<=DP_RAM_addr_in+1;	  //Si aun no ha llegado a la ultima posición sigue recorriendo 
+                                                          //los espacios en memoria y luego escribe en ellos cuando pasa al estado Byte2
+         DP_RAM_data_in[11:8]<=CAM_px_data[3:0];
+         status<=BYTE2;
+       end
+     else status<=NOTHING;   
+ end
+         
+ BYTE2:begin				//En este estado se habilita la escritura en memoria
+       DP_RAM_data_in[7:0]<=CAM_px_data;
+       DP_RAM_regW<=1;    
+       status<=BYTE1;
+ end
+```
 ## Dual port RAM (Buffer de memoria)
 Mediante el módulo "buffer_ram_dp.v" se hace el almacenamiento de datos en el buffer o FIFO para posteriormente procesarlos o enviarlos a la VGA
 
@@ -55,7 +72,27 @@ parameter DW = 12,		 // Cantidad de Bits de los datos.
 ![ram](/Imagenes/ramdp.png) 
 ## Procesamiento de imágen
 
+Mediante la detección de color pixel por pixel se determina el color total de la figura
+```verilog
+if (Sel_Color)begin
+ancho_actual<=ancho_actual+1;
+R<=R+proc_data_in[11:8];
+G<=G+proc_data_in[7:4];
+B<=B+proc_data_in[3:0];
+end
 
+if(R>G&R>B) color<=1; // Color Rojo
+else if(G>R&G>B) color<=2; // Color Verde
+else if(B>R&B>G) color<=3; // Color Azul
+else color<=0;
+```
+Además se determina la forma de la figura usando como referencia el ancho en el cual se mantiene un mismo color para una misma figura y luego se comparan diferentes anchos para determinar si es un triangulo, un cuadrado o un circulo
+```verilog
+if(fila_valida>=ancho_mayor&ancho_mayor>(fila_valida-(fila_valida>>2))) figure<=1;                                  // Triangulo
+else if(((fila_valida+(fila_valida>>2))>>1)>ancho_mayor&ancho_mayor>((fila_valida-(fila_valida>>2))>>1)) figure<=2; // circulo
+else if(fila_valida>0) figure<=3;                                                                                   // cuadrado
+else figure<=0;
+```
 ## Datos de salida
 
 ```verilog
