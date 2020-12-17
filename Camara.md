@@ -5,7 +5,7 @@ El Módulo de la cámara y el procesamiento de imágen están basados en el sigu
 
 <p align="center">
   
-![Screenshot](diagramabloques.png) 
+![Screenshot](/Imagenes/diagramabloques.png) 
 
 
 ## Datos de entrada
