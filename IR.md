@@ -1,1 +1,1 @@
-
+El sensor infrarrojo utilizado fue el POLOLU-2459, este periferico se usa para eliminar variables en el movimiento del robot, de este modo tendremos menos grados de libertad, para ello implementamos mediante este dispositivo un seguidor de linea. Por otra parte, para la construccion del Driver de este dispositivo debemos tener en cuenta que posee 3 pines donde 2 de ellos son la alimentacion y el tercer pin es para el envio y la recepcion de informacion. Ahora en cuanto a la manera en que se detectan los objetos estara dado por 
