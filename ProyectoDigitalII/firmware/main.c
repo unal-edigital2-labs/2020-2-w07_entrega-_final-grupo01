@@ -267,7 +267,7 @@ static void car_main(void){
 		char color[4] = {"NNNN"};  // Obstáculos (colores) en dirección absoluta (al final)
 		
 		// Adquirimos nuestros datos de la coordenada en dirección relativa
-		pwm_cntrl_orden_write(4);
+		pwm_cntrl_orden_write(5);
 		walls[0] = read_us();
 		color[0] = read_camera();
 
@@ -275,7 +275,7 @@ static void car_main(void){
 		walls[2] = read_us();
 		color[2] = read_camera();
 		
-		pwm_cntrl_orden_write(5);
+		pwm_cntrl_orden_write(4);
 		walls[1] = read_us();
 		color[1] = read_camera();
 
