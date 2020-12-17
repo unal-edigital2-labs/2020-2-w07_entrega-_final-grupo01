@@ -67,7 +67,7 @@ if(reset)
 
 Con base en lo anterior y dado que ya tenemos la informacion del tiempo que demora la señal en ir hasta el objeto y regresar procedemos a calcular la distancia a la que se encuentra. A continuacion encontramos la caja negra que representa el ultrasonido junto con todas sus entradas y salidas 
 
-![Screenshot](Modulo Ultrasonido.png)
+![Screenshot](ModuloUltrasonido.png)
 
 Con base en esta informacion podremos proceder a agregar la funcionalidad de nuestro mudulo para su integracion con Litex, para ello debemos tener en cuenta cada una de las entradas y salidas, por lo que crearemos el objeto ultrasonido.py, donde tendremos las variables que se presentan a continuacion: 
 
