@@ -38,7 +38,7 @@ endmodule
 
 ```
 
-Ahora con este nuevo reloj del sistema sabemos que sera necesario un contador para saber el tiempo que pasa entre la salidad de la señal por el pin TRIG hasta las llegada del mismo por el pin de ECHO. Para ello hacemos uso de la siguiente funcion If-else la cual nos indicara cuando debe empezar a contar el reloj
+Ahora con este nuevo reloj del sistema sabemos que sera necesario un contador para saber el tiempo que pasa entre la salidad de la señal por el pin TRIG hasta las llegada del mismo por el pin de ECHO. Para ello hacemos uso de la siguiente funcion If-else la cual nos indicara cuando debe empezar a contar el reloj, la cual sera dada por el momento en que la señal que fue enviaba llegue hasta el pin ECHO.
 
 ``` verilog
 if(reset)
@@ -65,7 +65,7 @@ if(reset)
 
 ```
 
-
+Con base en lo anterior y dado que ya tenemos la informacion del tiempo que demora la señal en ir hasta el objeto y regresar procedemos a calcular la distancia a la que se encuentra. A continuacion encontramos la caja negra que representa el ultrasonido junto con todas sus entradas y salidas 
 
 
 
