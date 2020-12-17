@@ -46,9 +46,13 @@ Mediante el módulo "camread.v" se hace la captura de datos y su respectiva conv
 
 ## Dual port RAM (Buffer de memoria)
 Mediante el módulo "buffer_ram_dp.v" se hace el almacenamiento de datos en el buffer o FIFO para posteriormente procesarlos o enviarlos a la VGA
-Se fija la cantidad 
-parameter AW = 15,		 // Cantidad de bits  de la direccion.
-	parameter DW = 12,		 // Cantidad de Bits de los datos.
+
+```verilog
+parameter AW = 15,		 // Cantidad de bits de la direccion.
+parameter DW = 12,		 // Cantidad de Bits de los datos.
+```
+
+![ram](/Imagenes/ramdp.png) 
 ## Procesamiento de imágen
 
 
