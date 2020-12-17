@@ -66,18 +66,18 @@ En esta función, probaremos la UART que implementamos en pines arbitrarios de l
 ### rotate_car()
 ```C
 if (right){
-		printf("Rotación a la derecha\n");
-		uart1_write('J');
-		delay_ms(350);
-		uart1_write('I');
-		delay_ms(500);
-	} else {
-		printf("Rotación a la izquierda\n");
-		uart1_write('H');
-		delay_ms(350);
-		uart1_write('I');
-		delay_ms(500);
-	}
+	printf("Rotación a la derecha\n");
+	uart1_write('J');
+	delay_ms(350);
+	uart1_write('I');
+	delay_ms(500);
+} else {
+	printf("Rotación a la izquierda\n");
+	uart1_write('H');
+	delay_ms(350);
+	uart1_write('I');
+	delay_ms(500);
+}
 ```
 Esta función nos permite rotar el carro a la izquierda o a la derecha, para ello, hacemos uso de la UART1 que escribirá al Arduino la instrucción relacionada al giro de los motores con este fin. Al escribir la instrucción, le daremos un espacio de 350ms que es el tiempo que en nuestro caso resultó efctivo para realizar un giro adecuado y posteriormente detenemos todo el movimiento por 500ms para lograr una mayor estabilidad.
 ### forward()
@@ -95,6 +95,9 @@ static void forward(void){
 }
 ```
 Con esta función, buscamos que el carro avance hasta encontrar una línea negra en el suelo dadas las condiciones que se nos fueron dadas para el laberinto. Para ello escribimos la señal de avanzar por medio de la UART1 al Arduino y de allí en adelante revisamos constantemente la salida provista por el sensor infrarrojo que, cuando detecte una distancia mayor a 2 (parámetro que nos entregó buenos resultados para detectar líneas negras), envíe la señal de alto para detener el movimiento.
+
+Todos los resultados se pueden ver en vídeo [aquí](https://drive.google.com/drive/folders/1TjqHZUeRFE6-v9n2TI3CKVCBduTdpxww?usp=sharing).
+
 ## Programa principal  Recorrido del laberinto 
 Antes de proceder con la explicación de nuestro algoritmo para recorrer el laberinto, recordaremos algunas condiciones y aspectos generales planteados.
 
@@ -137,36 +140,36 @@ De esta manera rotamos el servomotor que dicta la posición que tiene la cámara
 En este punto, ya somos capaces de decidir que dirección tomar en el siguiente paso, entonces vamos a almacenar esta información en forma de un entero, que será el índice del primer elemento vacío del arreglo de las paredes. Notemos que tomando la información relativa, atrás siempre estará libre, por lo que si este es el único espacio que lo está, podremos terminar el recorrido.
 ```C
 int free_index = 0;
-		for (int i = 0; i < 4; i++) {
-			if (walls[i] == 0) {
-				free_index = i;
-				break;
-			}
-		}
+for (int i = 0; i < 4; i++) {
+	if (walls[i] == 0) {
+		free_index = i;
+		break;
+	}
+}
 ```
 Ahora, sabiendo nuestra dirección absoluta, decidiremos cómo rotar los arreglos que obtuvimos en el paso anterior para de esta manera transmitirlos mediante la terminal en coordenadas absolutas.
 ```C
 switch (absolute_direction) {
-			case 0: // Apunta a la izquierda absoluta
-				rotate_bool_array_left(walls, 4);
-				rotate_char_array_left(color, 4);
-				break;
+	case 0: // Apunta a la izquierda absoluta
+		rotate_bool_array_left(walls, 4);
+		rotate_char_array_left(color, 4);
+		break;
 
-			case 1: // Apunta al arriba absoluto
-				break;
+	case 1: // Apunta al arriba absoluto
+		break;
 
-			case 2: // Apunta a la derecha absoluta
-				rotate_bool_array_right(walls, 4);
-				rotate_char_array_right(color, 4);
-				break;
+	case 2: // Apunta a la derecha absoluta
+		rotate_bool_array_right(walls, 4);
+		rotate_char_array_right(color, 4);
+		break;
 
-			default: // Apunta al abajo absoluto
-				rotate_bool_array_right(walls, 4);
-				rotate_bool_array_right(walls, 4);
-				rotate_char_array_right(color, 4);
-				rotate_char_array_right(color, 4);
-				break;
-		}
+	default: // Apunta al abajo absoluto
+		rotate_bool_array_right(walls, 4);
+		rotate_bool_array_right(walls, 4);
+		rotate_char_array_right(color, 4);
+		rotate_char_array_right(color, 4);
+		break;
+}
 
 		printf("\nCoordenada %d%d:    ", current_x, current_y);
 		printf("Paredes: %d%d%d%d   ", walls[0], walls[1], walls[2], walls[3]);
@@ -175,47 +178,47 @@ switch (absolute_direction) {
 Una vez hecho esto, nos resta continuar el camino, para ello usamos el índice obtenido anteriormente, el cual nos indica la dirección que está libre, con base en eso decidimos si tenemos que rotar el carro, avanzamos y actualizamos nuestra dirección absoluta tal que:
 ```C
 switch (free_index) {
-			case 0: // Izquierda relativa está libre
-				rotate_car(false);
-				absolute_direction--;
-				if (absolute_direction < 0)
-					absolute_direction = 3;
-				forward();
-				break;
+	case 0: // Izquierda relativa está libre
+		rotate_car(false);
+		absolute_direction--;
+		if (absolute_direction < 0)
+			absolute_direction = 3;
+		forward();
+		break;
 			
-			case 1: // Adelante relativo está libre
-				forward();
-				break;
+	case 1: // Adelante relativo está libre
+		forward();
+		break;
 
-			case 2: // Derecha relativa está libre
-				rotate_car(true);
-				absolute_direction = (absolute_direction + 1)%4;
-				forward();
-				break;
+	case 2: // Derecha relativa está libre
+		rotate_car(true);
+		absolute_direction = (absolute_direction + 1)%4;
+		forward();
+		break;
 
-			default: // Solo atrás relativo está libre (Fin del laberinto)
-				printf("Fin del recorrido\n");
-				end_map = true;
-				break;
-		}
+	default: // Solo atrás relativo está libre (Fin del laberinto)
+		printf("Fin del recorrido\n");
+		end_map = true;
+		break;
+}
 ```
 Finalmente, según la dirección absoluta decidimos cómo actualizar las coordenadas del carro para ejecutar el siguiente ciclo (si lo hay):
 ```C
 switch (absolute_direction) {
-			case 0: // Apunta a la izquierda absoluta
-				current_x--;
-				break;
+	case 0: // Apunta a la izquierda absoluta
+		current_x--;
+		break;
 
-			case 1: // Apunta al arriba absoluto
-				current_y++;
-				break;
+	case 1: // Apunta al arriba absoluto
+		current_y++;
+		break;
 
-			case 2: // Apunta a la derecha absoluta
-				current_x++;
-				break;
+	case 2: // Apunta a la derecha absoluta
+		current_x++;
+		break;
 
-			default: // Apunta al abajo absoluto
-				current_y--;
-				break;
-		}		
+	default: // Apunta al abajo absoluto
+		current_y--;
+		break;
+}		
 ```
