@@ -1,11 +1,12 @@
 # Diagrama de bloques
 El Módulo de la cámara y el procesamiento de imágen están basados en el siguiente diagrama de bloques para su funcionamiento
 
-## Configuración de la cámara (I2C)
-
 <p align="center">
   
 ![Screenshot](/Imagenes/diagramabloques.png) 
+
+
+## Configuración de la cámara (I2C)
 
 
 ## Datos de entrada
