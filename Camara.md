@@ -11,24 +11,24 @@ Mediante el archivo "OV7670_SETUP_i2c.ino" se realiza la configuración de la c�
 
 ```c
 OV7670_write(0x12, 0x0C);  //COM7: Establece QCIF y RGB
-OV7670_write(0x11, 0xC0);       //CLKR: Set internal clock to use external clock
-OV7670_write(0x0C, 0x08);       //COM3: Habilita la Escala de tamaño
+OV7670_write(0x11, 0xC0);  //CLKR: Set internal clock to use external clock
+OV7670_write(0x0C, 0x08);  //COM3: Habilita la Escala de tamaño
 OV7670_write(0x3E, 0x00);
-OV7670_write(0x40,0xD0);      //COM15: Establece RGB 565
+OV7670_write(0x40,0xD0);   //COM15: Establece RGB 565
 
-Color Bar
-OV7670_write(0x42, 0x08); 
+//Color Bar                // Establece el test de barra de colores
+OV7670_write(0x42, 0x08);    
 OV7670_write(0x12, 0x0E);
 
 OV7670_write(0x3A,0x04);
-OV7670_write(0x14,0x18); // control de ganancia 
+OV7670_write(0x14,0x18);   // control de ganancia 
 
-OV7670_write(0x17,0x14);  //cambia hstart
-OV7670_write(0x18,0x02);  // cambia hstop
-OV7670_write(0x32,0x80);  // href deja el valor qye  viene por default
-OV7670_write(0x19,0x03);  // vref start
-OV7670_write(0x1A,0x7B);  // vref stop
-OV7670_write(0x03,0x0A);  // cambia vref
+OV7670_write(0x17,0x14);   //cambia hstart
+OV7670_write(0x18,0x02);   // cambia hstop
+OV7670_write(0x32,0x80);   // href deja el valor qye  viene por default
+OV7670_write(0x19,0x03);   // vref start
+OV7670_write(0x1A,0x7B);   // vref stop
+OV7670_write(0x03,0x0A);   // cambia vref
 ```
 ## Datos de entrada
 Los datos de entrada son los cables de la cámara con sus señales principales los cuales son
@@ -54,14 +54,14 @@ Mediante el módulo "buffer_ram_dp.v" se hace el almacenamiento de datos en el b
 
 ```verilog
 output wire [1:0] color,   // Salida de referencia del color procesado.
-output wire [1:0]   figure,     // Salida de referencia de la figura procesada.
-output  wire  done
-output wire CAM_xclk,		// System  clock input de la camara.
-output wire CAM_pwdn,		// Power down mode.
-output wire CAM_reset,		// Reset para borrar los registros de la camara.
-output wire VGA_Hsync_n,  // Salida de sincronizacion Horizintal para la VGA.
-output wire VGA_Vsync_n,  // Salida de sincronizacion Vertical para la VGA.
-output wire [3:0] VGA_R,  // Salida de 4 bits VGA roja
-output wire [3:0] VGA_G,  // Salida de 4 bits VGA verde.
-output wire [3:0] VGA_B,  // Salida de 4 bits VGA azul.
+output wire [1:0] figure,  // Salida de referencia de la figura procesada.
+output  wire  done,
+output wire CAM_xclk,		   // System  clock input de la camara.
+output wire CAM_pwdn,		   // Power down mode.
+output wire CAM_reset,		 // Reset para borrar los registros de la camara.
+output wire VGA_Hsync_n,   // Salida de sincronizacion Horizintal para la VGA.
+output wire VGA_Vsync_n,   // Salida de sincronizacion Vertical para la VGA.
+output wire [3:0] VGA_R,   // Salida de 4 bits VGA roja
+output wire [3:0] VGA_G,   // Salida de 4 bits VGA verde.
+output wire [3:0] VGA_B,   // Salida de 4 bits VGA azul.
 ```
