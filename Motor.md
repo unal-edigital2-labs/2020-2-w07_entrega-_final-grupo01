@@ -2,7 +2,7 @@ Para el movimiento del carrito se hizo uso de dos motores DC en conjunto con un 
 
 <p align="center">
 
-![Screenshot](PuenteH.jpg)
+![Screenshot](/Imagenes/PuenteH.jpg)
 
 </p> 
 

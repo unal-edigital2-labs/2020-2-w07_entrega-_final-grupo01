@@ -63,7 +63,7 @@ case({orden[1],orden[0]})
 
 Para este caso se usara la variable orden que sera de 3 bits, donde el bit mas signifitivo sera usado como el reset del sistema, y los dos bits restantes seran usados para realizar la eleccion del giro que se llevara a cabo. Por lo tanto, en caso de que estos bits sean 00, no habra giro en el servomotor; si son 01 se hara un giro de 90 grados, para el caso en el que se tenga 10 el giro sera de -90 grados, y para el resto de hara un giro de cero grados como default. Con todos estos modulos que vimos con anterioridad ya tendremos el driver que hara que nuestro servomotor funcione apropiadamente. Ahora para la apropiada integracion con Litex, debemos definir nuestras entradas y salidas, como se muestra en la siguiente imagen: 
 
-![Screenshot](ModuloPWM.png)
+![Screenshot](/Imagenes/ModuloPWM.png)
 
 Para este periferico, solo tendremos un pin que se comunicara con el mundo exterior, y sera por donde emitamos nuestra señal PWM, tambien tendremos el reloj que sera el mismo del sistema, y finalmente la variable Orden, la cual sera almacenada en memoria, pues es mediante esta como se contralara el movimiento del servotor; a continuacion podemos observar la funcionalidad de este modulo en python: 
 

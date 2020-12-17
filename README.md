@@ -7,7 +7,7 @@ El proyecto consiste en un robot el cual se encuentra en un laberinto, y este de
 
 <p align="center">
   
-![Screenshot](ProyectoFinal.png) 
+![Screenshot](/Imagenes/ProyectoFinal.png) 
 
 </p>
 
