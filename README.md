@@ -17,7 +17,7 @@ Este SoC se encuentra compuesto primeramente por el procesador RISC-V, con su re
 
 
 <h3> INFRARROJO </h3>
-El sensor infrarrojo utilizado fue el POLOLU-2459
+
 
 <h3> SERVOMOTOR </h3>
 
