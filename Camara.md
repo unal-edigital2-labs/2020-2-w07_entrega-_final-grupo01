@@ -56,9 +56,9 @@ Mediante el módulo "buffer_ram_dp.v" se hace el almacenamiento de datos en el b
 output wire [1:0] color,   // Salida de referencia del color procesado.
 output wire [1:0] figure,  // Salida de referencia de la figura procesada.
 output  wire  done,
-output wire CAM_xclk,   // System  clock input de la camara.
-output wire CAM_pwdn,   // Power down mode.
-output wire CAM_reset,   // Reset para borrar los registros de la camara.
+output wire CAM_xclk,      // System  clock input de la camara.
+output wire CAM_pwdn,      // Power down mode.
+output wire CAM_reset,     // Reset para borrar los registros de la camara.
 output wire VGA_Hsync_n,   // Salida de sincronizacion Horizintal para la VGA.
 output wire VGA_Vsync_n,   // Salida de sincronizacion Vertical para la VGA.
 output wire [3:0] VGA_R,   // Salida de 4 bits VGA roja
