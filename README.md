@@ -12,7 +12,7 @@ Aquí encontrará el proyecto de Robot Cartográfico propuesto para la clase lis
 
 ![Screenshot](/Imagenes/Carro.JPG)
 
-A continuación se se pueden encontrar links para cada uno de los modulos del carrito
+A continuación se se pueden encontrar links con la documentacion de los modulos del proyecto.
 
 [Camara](Camara.md)
 
