@@ -11,3 +11,19 @@ Repositorio del proyecto final de la asignatura Electrónica Digital II de la Un
 Aquí encontrará el proyecto de Robot Cartográfico propuesto para la clase listo para usar junto con la respectiva documentación de cada módulo implementado.
 
 ![Screenshot](/Imagenes/Carro.JPG)
+
+A continuación se se pueden encontrar links para cada uno de los modulos del carrito
+
+[Camara](Camara.md)
+
+[Firmware](Firmware.md)
+
+[IR](IR.md)
+
+[Motor](Motor.md)
+
+[PWM](PWM.md)
+
+[SoC](SoC.md)
+
+[Ultrasonido](Ultrasonido.md)
