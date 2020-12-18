@@ -7,6 +7,12 @@ Para la construccion del Driver de este dispositivo debemos tener en cuenta que 
 
 A partir del diagrama de circuito: 
 
+<p align="center">
+
+![Screenshot](/Imagenes/Circuito_IR.jpg)
+
+</p> 
+
 Se puede derivar que el funcionamiento del circuito consiste en medir el tiempo de carga del condensador siendo este dependiente de la luz incidente en el fototransistor. Así, pódemos derivar que la distancia de un objeto es proporcional al tiempo en que la diferencia de potencial del condensador demora de pasar de 0 hasta 1. 
 
 para activar el sensor es necesario primero descargar el condensador lo que se hace con la señal de salida trigger, cuando la señal de salida trigger es enviada el condensador se descarga con la resistencia de entrada, una vez descargado se cambia la salida de baja a alta impedancia lo que permite al condensador cargarse con el fototransistor. el tiempo en el que se demora la carga del condensador es usado para calcular la distancia a un objeto o para significar su detección, si esta carga se demora más que un tiempo especifico el ciclo se reinicia y no se da detección.
