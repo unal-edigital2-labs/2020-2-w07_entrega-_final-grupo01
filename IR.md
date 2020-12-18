@@ -15,6 +15,8 @@ Se puede derivar que el funcionamiento del circuito consiste en medir el tiempo 
 
 para activar el sensor es necesario primero descargar el condensador lo que se hace con la señal de salida trigger, cuando la señal de salida trigger es enviada el condensador se descarga con la resistencia de entrada, una vez descargado se cambia la salida de baja a alta impedancia lo que permite al condensador cargarse con el fototransistor. el tiempo en el que se demora la carga del condensador es usado para calcular la distancia a un objeto o para significar su detección, si esta carga se demora más que un tiempo especifico el ciclo se reinicia y no se da detección.
 
+El codigo en verilog del hardware del infrarrojo puede encontrarse [aqui](ProyectoDigitalII/module/verilog/Infrarrojo/modulo_ir.v)
+
 Con esta información en mente procedemos con el codigo, iniciando con los pines de entrada y salida (en donde unicamente ir_io sale fisicamente del SoC) y los registros internos:
 
 ```verilog
@@ -88,3 +90,30 @@ if (contador >= 32750) begin
 ```
 
 en este final del ciclo el valor de los contadores es reiniciado a 0 y el valor del ancho del pulso es guardado en registro que posteriormente es enviado a ser guardado en los registros y posteriormente en la memoria.
+
+Una vez terminado el ciclo, el modulo es añadido al sistema donde litex emplea el archivo [infrarrojo.py](ProyectoDigitalII/module/infrarrojo.py) para unir los datos de entrada y salida del modulo a el reloj de la fpga y para enviar el valor de la distancia a la memoria
+
+```py
+class Infrarrojo(Module,AutoCSR):
+    def __init__(self, ir_io):
+        self.clk = ClockSignal()   
+        self.rst = ResetSignal()  
+
+        self.ir_io = ir_io
+
+        #self.descarga = descarga
+        self.distancia = CSRStatus(8)
+
+        self.specials +=Instance("modulo_ir",
+            i_clk = self.clk,
+            i_rst = self.rst,
+            io_ir_io = self.ir_io,
+            o_distancia = self.distancia.status,
+        )
+```
+
+y el pin `ir_io`es adignado a una de las salidas fisicas de la fpga en el archivo [buildSoC](ProyectoDigitalII/buildSoCproject.py)
+```py
+SoCCore.add_csr(self,"infrarrojo_cntrl")
+		self.submodules.infrarrojo_cntrl = infrarrojo.Infrarrojo(platform.request("ir_inout"))
+```
