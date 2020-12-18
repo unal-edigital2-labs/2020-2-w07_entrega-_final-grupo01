@@ -27,3 +27,6 @@ En el enlace de la subsección se encontrará con el directorio en el que están
 - [Motor](/Motor.md) 
 - [PWM](/ProyectoDigitalII/module/verilog/PWM)
 - [Ultrasonido](/ProyectoDigitalII/module/verilog/Ultrasonido(NexysA7))
+
+## [Videos de pruebas de funcionamiento](https://drive.google.com/drive/folders/1TjqHZUeRFE6-v9n2TI3CKVCBduTdpxww?usp=sharing)
+Encontrará aquí una carpeta pública de Google Drive con videos tomados en la fase de pruebas del carro, haciendo funciones de prueba detalladas en el [firmware](/ProyectoDigitalII/firmware) junto con sus respectivos resultados en el robot.
