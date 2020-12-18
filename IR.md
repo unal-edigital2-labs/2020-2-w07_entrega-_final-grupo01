@@ -9,7 +9,7 @@ A partir del diagrama de circuito:
 
 <p align="center">
 
-![Screenshot](/Imagenes/Circuito_IR.jpg)
+![Screenshot](/Imagenes/circuito IR.png)
 
 </p> 
 
