@@ -22,11 +22,11 @@ Al seguir este enlace, encontrará la carpeta en la que se encuentra toda la inf
 
 ## [Módulos de Verilog](/ProyectoDigitalII/module)
 En el enlace de la subsección se encontrará con el directorio en el que están los archivos de Python que integran los módulos con Litex, sin embargo en los listados aquí abajo encontrará los directorios que contienen sus archivos en Verilog acompañados de la explicación de su funcionamiento.
-- [Camara](/ProyectoDigitalII/module/verilog/camara)
+- [Ultrasonido](/ProyectoDigitalII/module/verilog/Ultrasonido(NexysA7))
 - [IR](/ProyectoDigitalII/module/verilog/Infrarrojo)
 - [Motor](/Motor.md) 
 - [PWM](/ProyectoDigitalII/module/verilog/PWM)
-- [Ultrasonido](/ProyectoDigitalII/module/verilog/Ultrasonido(NexysA7))
+- [Cámara](/ProyectoDigitalII/module/verilog/camara)
 
 ## [Videos de pruebas de funcionamiento](https://drive.google.com/drive/folders/1TjqHZUeRFE6-v9n2TI3CKVCBduTdpxww?usp=sharing)
 Encontrará aquí una carpeta pública de Google Drive con videos tomados en la fase de pruebas del carro, haciendo funciones de prueba detalladas en el [firmware](/ProyectoDigitalII/firmware) junto con sus respectivos resultados en el robot.
