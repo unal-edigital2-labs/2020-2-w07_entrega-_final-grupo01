@@ -1,4 +1,4 @@
-#SERVOMOTOR
+# SERVOMOTOR
 
 Para el movimiento del radar se hizo uso de un servomotor donde se realizaban los respectivos giros de 90 grados y -90 grados, para asi realizar el mapeo mediante la camara y tambien el sensor ultrasonido. Para lograr que se den estos movimientos,  se debe generar una señal PWM que dependera del angulo al que se requiera realizar el movimiento. Teniendo esto en cuenta se procedio a diseñar el driver para este periferico, donde inicialmente se realizo un divisor de frecuencia para el servomotor, el cual llevaria el reloj del sistema de una frecuencia de 100MHz hasta una frecuencia de 20kHz. Luego se procedio a realizar la generacion de la señal PWM como se observa a continuacion: 
 
