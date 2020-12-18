@@ -45,7 +45,7 @@ Mediante el módulo "camread.v" se hace la captura de datos y su respectiva asig
 ```verilog
 BYTE1:begin
     DP_RAM_regW<=0; 					  //Desactiva la escritura en memoria 
-    if(CAM_href)begin					  //si la señal Href esta arriva, evalua si ya llego a la ultima posicion en memoria
+    if(CAM_href)begin					  //si la señal Href esta arriba, evalua si ya llego a la ultima posicion en memoria
            if(DP_RAM_addr_in==imaSiz) DP_RAM_addr_in<=0;  //Si ya llego al final, reinicia la posición en memoria. 
            else DP_RAM_addr_in<=DP_RAM_addr_in+1;	  //Si aun no ha llegado a la ultima posición sigue recorriendo 
                                                           //los espacios en memoria y luego escribe en ellos cuando pasa al estado Byte2
