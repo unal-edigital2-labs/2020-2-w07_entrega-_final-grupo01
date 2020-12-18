@@ -2,7 +2,7 @@
 
 # Grupo 1
 
- - Juan Pablo Fiaga
+ - Juan Pablo Fiagá
  - Juan David Pabón
  - David Ramírez
  - David Viracachá
