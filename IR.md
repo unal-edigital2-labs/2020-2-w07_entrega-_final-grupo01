@@ -7,11 +7,9 @@ Para la construccion del Driver de este dispositivo debemos tener en cuenta que 
 
 A partir del diagrama de circuito: 
 
-<p align="center">
 
 ![Screenshot](/Imagenes/circuito IR.png)
 
-</p> 
 
 Se puede derivar que el funcionamiento del circuito consiste en medir el tiempo de carga del condensador siendo este dependiente de la luz incidente en el fototransistor. Así, pódemos derivar que la distancia de un objeto es proporcional al tiempo en que la diferencia de potencial del condensador demora de pasar de 0 hasta 1. 
 
